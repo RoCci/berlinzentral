@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+class App extends Component {
+  state = {
+      members: []
+    }
+  
+  componentDidMount() {
+    fetch('/articles')
+      .then(res => res.json())
+      .then(members => this.setState({ members: members }));
+    console.log(this.members);
+    
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+  
+    return (
+        <div className="Users">
+          <h1>Users</h1>
+          {this.state.members.map(member =>
+            <div key={member.id}>{member.name} {member.surname} - {member.email}</div>
+          )}
+        </div>
+    );
+  }
 }
 
 export default App;

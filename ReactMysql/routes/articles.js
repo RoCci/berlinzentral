@@ -1,0 +1,14 @@
+var express = require('express');
+var router = express.Router();
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+ 	res.locals.connection.query('SELECT * from article', function (error, results, fields) {
+      if (error) throw error;
+      console.log(results);
+      res.send(JSON.stringify(results));
+      
+	});
+});
+
+module.exports = router;
