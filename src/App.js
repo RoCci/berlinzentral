@@ -28,7 +28,6 @@ class App extends Component {
   
     return (
         <div className="Users">
-          <h1>Artikel</h1>
         </div>
     );
   }

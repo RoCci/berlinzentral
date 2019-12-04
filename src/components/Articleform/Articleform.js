@@ -8,11 +8,11 @@ const articleform = (props) => {
     <div className="section-content-block section-process">
       <div className="col-md-12 col-sm-12 text-center">
         <h2 className="section-heading">
-          <span>Upload</span>
-          Today</h2>
-        <p className="section-subheading">Because every pint of blood can save a life. India faces fatal accidents
+          <span>Article Upload</span>
+          </h2>
+        {/* <p className="section-subheading">Because every pint of blood can save a life. India faces fatal accidents
           <span className="highlightme">6 times higher</span>
-          than other countries...</p>
+          than other countries...</p> */}
       </div>
       <div className="row">
         <div className="col-md-2"/>
