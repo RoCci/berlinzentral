@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  mysql-developments:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: blnzentral
+    ports:
+      - "3308:3306"

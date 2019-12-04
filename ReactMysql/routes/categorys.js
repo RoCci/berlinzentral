@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  res.locals.connection.query('SELECT * from blnzentral.article', function (error, results, fields) {
+  res.locals.connection.query('SELECT * from blnzentral.categorys', function (error, results, fields) {
     if (error) throw error;
     console.log(results);
     res.send(JSON.stringify(results));
