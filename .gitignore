@@ -25,3 +25,4 @@ yarn-error.log*
 ReactMysql/node_modules
 ReactMysql/package-lock.json
 *.json
+package-lock.json

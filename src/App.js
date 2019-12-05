@@ -1,26 +1,38 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+
+import Article from './components/Article/Article';
 import './App.css';
+
+const API = '/articles';
+
 class App extends Component {
   state = {
-      members: []
-    }
+    artc: [],
+    artctitle: [],
+    artctext: []
+  };
   
   componentDidMount() {
-    fetch('/articles')
-      .then(res => res.json())
-      .then(members => this.setState({ members: members }));
-    console.log(this.members);
+
     
+    axios.get(API)
+     .then(result => this.setState({
+       artc: result.data.map(id => id.idarticle),
+       artctitle: result.data.map(title => title.title),
+       artctext: result.data.map(text => text.text)
+     }));    
+
   }
 
+
   render() {
-  
+    let artc = (
+      <Article></Article>
+    );
     return (
-        <div className="Users">
-          <h1>Users</h1>
-          {this.state.members.map(member =>
-            <div key={member.id}>{member.name} {member.surname} - {member.email}</div>
-          )}
+      <div className="Users">
+        {artc}
         </div>
     );
   }
