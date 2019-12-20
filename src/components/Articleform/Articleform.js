@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import CategorySelect from '../Categorys/Categorys';
 let arrayOfData = [];
 
 const articleform = (props) => {
 
   return (
+    <div className="form">
     <div className="section-content-block section-process">
-      <div className="col-md-8 col-sm-10 text-center">
+      <div className="col-md-8 col-sm-8">
         <h2 className="section-heading">
           <span>Article Upload</span>
           </h2>
@@ -15,8 +16,7 @@ const articleform = (props) => {
           than other countries...</p> */}
       </div>
       <div className="row">
-        <div className="col-md-2"/>
-        <div className="col-md-8 appointment-form-wrapper text-center clearfix">
+        <div className="col-md-8 appointment-form-wrapper">
           <form onSubmit={props.submitted} className="appoinment-form" name="articleForm">
             <div className="form-group col-md-8">
               <input
@@ -24,6 +24,14 @@ const articleform = (props) => {
                 name="title"
                 className="form-control"
                 placeholder="Titel"
+                type="text"/>
+              </div>
+              <div className="form-group col-md-8">
+              <input
+                required
+                name="secondheader"
+                className="form-control"
+                placeholder="Zweite Überschrift"
                 type="text"/>
             </div>
             <div className="form-group col-md-8">
@@ -42,7 +50,8 @@ const articleform = (props) => {
           </form>
         </div>
       </div>
-    </div>
+      </div>
+      </div>
   )
 };
 

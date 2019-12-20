@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Articleform from '../Articleform/Articleform';
-import Article from '../Article/Article';
+// import ArticleHP from '../Article/ArticleHP';
 
 const UPL = '/upload';
  
@@ -10,6 +10,7 @@ class Upload extends Component {
     super(props);
     this.state = {
       title: '',
+      secondheader: '',
       text: '',
       category: '',
 
@@ -26,12 +27,14 @@ class Upload extends Component {
 
     this.setState({
       title: event.target.title.value,
+      secondheader: event.target.secondheader.value,
       text: event.target.textarea.value,
       category: event.target.category.value
     });
 
     const data = {
       title: event.target.title.value,
+      secondheader: event.target.secondheader.value,
       text: event.target.textarea.value,
       category: event.target.category.value
     };
@@ -57,23 +60,22 @@ class Upload extends Component {
   }
 
   render() {
+    let form = null;
+    let status = null;
     if (this.state.type && this.state.message) {
       var classString = 'alert alert-' + this.state.type;
-      var status = <div id="status" className={classString} ref="status">
+      status = <div id="status" className={classString} ref="status">
                      {this.state.message}
                    </div>;
     }
-    let form = (
+    form = (
       <Articleform submitted={this.handleSubmit}></Articleform>
     );
-    let artc = (
-      <Article></Article>
-    );
+    
     return (
-      <div className="App">
+      <div className="form">
         {status}
         {form}
-        {artc}
       </div>
     );
   }
