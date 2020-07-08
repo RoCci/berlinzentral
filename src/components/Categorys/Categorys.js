@@ -19,7 +19,7 @@ class CategorySelect extends Component {
     let arrayOfData = this.state.arraydata;
 
     let options = arrayOfData
-      .map((data) => <option key={data.idcategorys} value={data.category}>
+      .map((data) => <option key={data.idcategorys} value={data.category} defaultValue=" ">
         {data.category}
       </option>);
 
@@ -28,7 +28,7 @@ class CategorySelect extends Component {
         name="category"
         className="form-control"
         onChange={this.handleChange}>
-        <option>Select Item</option>
+        <option value="">Select Item</option>
         {options}
       </select>
     )

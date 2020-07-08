@@ -12,19 +12,19 @@ class Articlehp extends Component {
   componentDidMount() {
     axios
       .get(ARTC)
-      
-      .then(result => this.setState({arraydata: result.data}));
-
+      .then(result => result.data.filter(data => data.category === 'Home'))
+      .then(result => this.setState({ arraydata: result }));
   }
  
 
   render() {
     let arrayOfData = [];
-    arrayOfData = this.state.arraydata;   
-    
-    let article = arrayOfData.map((data) => <li key={data.idarticle}>
+    arrayOfData = this.state.arraydata;
+   
+    let articles = arrayOfData.map((data) => <li key={data.idarticle}>
       <h3>
-        <span className="cat"><strong>Categorie</strong> {data.category}</span>{data.title}
+        {data.title}
+        {data.secondheader ? <span className="secondheader"> {data.secondheader}</span> : null}
         <span className="dat"><strong>Date</strong> {data.date}</span>
       </h3>
       <p>{data.text}</p>
@@ -35,10 +35,11 @@ class Articlehp extends Component {
         <div className="col-md-2"></div>
         <div className="col-md-8 clearfix">
           <ul className="artcList">
-            {article}
+            {articles}
           </ul>
         </div>
-      </div>
+      
+        </div>
     )
   }
 }

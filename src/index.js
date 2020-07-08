@@ -4,7 +4,7 @@ import './_index.scss';
 import './animate.css';
 
 import App from './App';
-import Upload from './components/Upload/Upload';
+// import Upload from './components/Upload/Upload';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -2,13 +2,9 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import Upload from './components/Upload/Upload';
-import Article from './components/Article/Article';
-
+import Article from './components/Article/ArticleHP';
 class App extends Component {
-
   render() {
-
-  
     return (
      
       <div className="Main">
